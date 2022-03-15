@@ -1,0 +1,30 @@
+<!--Extends The Base Template-->
+{% extends 'base.html' %}
+
+<!--Page Title Block Starts-->
+{% block title %}Login{% endblock title %}
+<!--Page Title Block Ends-->
+
+<!--Content Block Starts-->
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container mt-4 text-center">
+    <h2> Login - The Reminder Things</h2>
+</div>
+<div class="container mt-5 col-5">
+    <form method="POST">
+        {% csrf_token %}
+        <b>{{ form|crispy }}</b>
+
+        <button type="submit" class="btn btn-primary mt-3">Login</button>
+    </form>
+    <div class="container-fluid mt-2">
+        <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+<!--Content Block Ends-->
